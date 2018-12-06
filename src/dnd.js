@@ -23,6 +23,9 @@ let homeworkContainer = document.querySelector('#homework-container');
  * @return {Element}
  */
 function createDiv() {
+    let div = document.createElement('div');
+    div.className = 'draggale-div';
+    return div;
 }
 
 /**
