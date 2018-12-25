@@ -69,33 +69,8 @@ function delegate(target, fn) {
  * @param {function} fn - обработчик
  */
 function once(target, fn) {
-  let handler = fn;
-  target.addEventListener("click", handler);
-  target.addEventListener("click", () => {
-    let clicked = 1;
-    return clicked;
-  });
-  if (clicked == 1) {
-    target.removeEventListener("click", handler);
-  }
+  target.addEventListener("click", fn, { once: true });
 }
-
-const button = document.querySelector("#one");
-function once(target, fn) {
-  let handler = fn;
-  let clicked = 0;
-  target.addEventListener("click", handler);
-  target.addEventListener("click", () => {
-    clicked = 1;
-    return clicked;
-  });
-  if (clicked == 1) {
-    target.removeEventListener("click", handler);
-  }
-}
-once(button, () => {
-  console.log("кнопка нажата");
-});
 
 export {
   addListener,
