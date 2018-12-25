@@ -13,7 +13,7 @@
  * @example
  * homeworkContainer.appendChild(...);
  */
-let homeworkContainer = document.querySelector('#homework-container');
+let homeworkContainer = document.querySelector("#homework-container");
 
 /**
  * Функция должна создавать и возвращать новый div с классом draggable-div и случайными размерами/цветом/позицией
@@ -23,6 +23,9 @@ let homeworkContainer = document.querySelector('#homework-container');
  * @return {Element}
  */
 function createDiv() {
+  let div = document.createElement("div");
+  div.className = "draggable-div";
+  return div;
 }
 
 /**
@@ -30,23 +33,20 @@ function createDiv() {
  *
  * @param {Element} target
  */
-function addListeners(target) {
-}
+function addListeners(target) {}
 
-let addDivButton = homeworkContainer.querySelector('#addDiv');
+let addDivButton = homeworkContainer.querySelector("#addDiv");
 
-addDivButton.addEventListener('click', function() {
-    // создать новый div
-    let div = createDiv();
+addDivButton.addEventListener("click", function() {
+  // создать новый div
+  let div = createDiv();
 
-    // добавить на страницу
-    homeworkContainer.appendChild(div);
-    // назначить обработчики событий мыши для реализации d&d
-    addListeners(div);
-    // можно не назначать обработчики событий каждому div в отдельности, а использовать делегирование
-    // или использовать HTML5 D&D - https://www.html5rocks.com/ru/tutorials/dnd/basics/
+  // добавить на страницу
+  homeworkContainer.appendChild(div);
+  // назначить обработчики событий мыши для реализации d&d
+  addListeners(div);
+  // можно не назначать обработчики событий каждому div в отдельности, а использовать делегирование
+  // или использовать HTML5 D&D - https://www.html5rocks.com/ru/tutorials/dnd/basics/
 });
 
-export {
-    createDiv
-};
+export { createDiv };
